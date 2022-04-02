@@ -1,9 +1,10 @@
+require('dotenv').config()
 const express=require('express');
 const http=require('http');
 const socketIo=require('socket.io');
 const {addUser,removeUser,usersInRoom} =require('./user');
 const app=express();
-const PORT=8000;
+const PORT=process.env.PORT || 8000;
 const server=http.createServer(app);
 server.listen(PORT,()=>{
     console.log("Chat Server is Running At Port",PORT);
